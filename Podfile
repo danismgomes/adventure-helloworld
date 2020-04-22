@@ -8,6 +8,29 @@ target 'HelloWorldProject' do
   # Pods for HelloWorldProject
   pod 'RealmSwift'
   pod 'FirebaseFirestoreSwift'
+  
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'FirebaseUI'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/Facebook'
+  pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
+  pod 'FirebaseUI/Phone'
+  
+  pod 'Firebase'
+  pod 'Firebase/Database'#Used to read and write at firebase
+  
+  #Facebook
+  pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  
+  #Google
+  pod 'GoogleSignIn'
 
   target 'HelloWorldProjectTests' do
     inherit! :search_paths
