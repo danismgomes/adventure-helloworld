@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                             accessToken: authentication.accessToken)
         let session = FirebaseSession()
-        //let userController = UserController()
         session.signInGoogle(authCredential: credential) { (res, err) in
             if err != nil {
                 print((err?.localizedDescription)!)
@@ -63,18 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-//        //Facebook social Login
-//        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        //Facebook social Login
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     
-//        let isFBOpenUrl = ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        let isFBOpenUrl = ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         let isGoogleOpenUrl = GIDSignIn.sharedInstance().handle(url)
         
-//        if isFBOpenUrl { return true }
+        if isFBOpenUrl { return true }
         if isGoogleOpenUrl { return true }
         
         return false
@@ -85,10 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         
-//        let isFBOpenUrl = ApplicationDelegate.shared.application(application, open: url, options: options)
+        let isFBOpenUrl = ApplicationDelegate.shared.application(application, open: url, options: options)
         let isGoogleOpenUrl = GIDSignIn.sharedInstance().handle(url)
         
-//        if isFBOpenUrl { return true }
+        if isFBOpenUrl { return true }
         if isGoogleOpenUrl { return true }
         
        return false
