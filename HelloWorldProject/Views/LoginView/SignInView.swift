@@ -13,16 +13,12 @@ struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
-    private let AppLogoImageName = "PocketLogo"
-    
     @EnvironmentObject var session: FirebaseSession
     
     var body: some View {
         NavigationView {
             VStack(spacing: 30){
-                Image(AppLogoImageName)
-                    .frame(width: 320.0, height: 320.0)
-                    .aspectRatio(contentMode: .fit)
+                Text("Adventure: Hello World!")
                 VStack(spacing: 20){
                     TextField("E-mail" , text: $email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
