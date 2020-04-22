@@ -8,6 +8,9 @@
 
 import UIKit
 import SwiftUI
+import Firebase
+import FirebaseAuth
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,12 +23,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
 
         // Use a UIHostingController as window root view controller.
+        let session = FirebaseSession()
+        let appRootView = AppRootView(session: session)
+        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: appRootView.environmentObject(session))
             self.window = window
             window.makeKeyAndVisible()
         }
